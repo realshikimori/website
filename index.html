@@ -2,153 +2,109 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shikimori — Personal Web Platform</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shikimori</title>
 
   <style>
     :root {
-      --bg: #0f1220;
-      --card: #171a2e;
-      --accent: #6cf2c2;
-      --text: #e6e8ff;
-      --muted: #9aa0ff;
+      --bg: #0b0d12;
+      --fg: #e8eaf0;
+      --muted: #9aa1b2;
+      --accent: #7aa2ff;
+      --border: #1e2230;
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont;
     }
 
     body {
-      background: linear-gradient(135deg, #0f1220, #141738);
-      color: var(--text);
+      background: var(--bg);
+      color: var(--fg);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      line-height: 1.6;
     }
 
     header {
-      padding: 4rem 2rem 3rem;
-      text-align: center;
+      padding: 4.5rem 1.5rem 3rem;
+      max-width: 860px;
+      margin: 0 auto;
     }
 
-    header h1 {
-      font-size: clamp(2.5rem, 5vw, 3.5rem);
-      letter-spacing: 1px;
+    h1 {
+      font-size: clamp(2.4rem, 5vw, 3.2rem);
+      letter-spacing: -0.02em;
     }
 
     header p {
-      margin-top: 1rem;
-      max-width: 600px;
-      margin-inline: auto;
+      margin-top: 1.25rem;
+      max-width: 620px;
       color: var(--muted);
       font-size: 1.05rem;
     }
 
     main {
       flex: 1;
-      padding: 2rem;
-      max-width: 1100px;
-      margin: auto;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 1.5rem 3rem;
       display: grid;
-      gap: 2rem;
+      gap: 3rem;
     }
 
     section {
-      background: var(--card);
-      border-radius: 16px;
-      padding: 2rem;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    section:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      border-top: 1px solid var(--border);
+      padding-top: 2.5rem;
     }
 
     section h2 {
-      margin-bottom: 1rem;
-      font-size: 1.4rem;
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
       color: var(--accent);
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
+    section p {
+      color: var(--muted);
+      max-width: 640px;
     }
 
-    .card {
-      background: rgba(255,255,255,0.04);
-      border-radius: 12px;
-      padding: 1.25rem;
-      border: 1px solid rgba(255,255,255,0.05);
+    ul {
+      margin-top: 1.2rem;
+      padding-left: 1.2rem;
     }
 
-    .card h3 {
-      margin-bottom: 0.5rem;
-      font-size: 1.1rem;
+    li {
+      margin-bottom: 0.4rem;
+      color: var(--muted);
     }
 
-    .card p {
-      font-size: 0.95rem;
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 0.85rem;
       color: var(--muted);
     }
 
     .status {
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 0.6rem;
-      margin-top: 1rem;
-      font-size: 0.95rem;
+      margin-top: 1.8rem;
+      font-size: 0.9rem;
+      color: var(--muted);
     }
 
     .dot {
-      width: 10px;
-      height: 10px;
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
       background: #4ade80;
-      box-shadow: 0 0 12px #4ade80;
-      animation: pulse 1.6s infinite;
-    }
-
-    @keyframes pulse {
-      0% { opacity: 0.4; }
-      50% { opacity: 1; }
-      100% { opacity: 0.4; }
-    }
-
-    footer {
-      text-align: center;
-      padding: 1.5rem;
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-
-    button {
-      background: var(--accent);
-      color: #0f1220;
-      border: none;
-      padding: 0.6rem 1.1rem;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-    }
-
-    button:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 6px 18px rgba(108,242,194,0.35);
-    }
-
-    .log {
-      margin-top: 1rem;
-      font-size: 0.9rem;
-      color: var(--muted);
-      min-height: 1.2em;
     }
   </style>
 </head>
@@ -157,8 +113,9 @@
   <header>
     <h1>Shikimori</h1>
     <p>
-      A personal web platform under active development, designed to host
-      projects, articles, and experimental tools.
+      Shikimori is a personal web platform currently under active development.
+      It will host writing, projects, and experimental work related to software
+      and the web.
     </p>
 
     <div class="status">
@@ -170,39 +127,28 @@
   <main>
 
     <section>
-      <h2>About This Project</h2>
+      <h2>Purpose</h2>
       <p>
-        Shikimori is a continuously evolving personal website. The goal is to
-        build a clean, fast, and extensible platform for publishing content,
-        showcasing work, and experimenting with modern web technologies.
+        This domain is intended to become a long-term personal space for
+        publishing articles, documenting projects, and sharing technical ideas
+        in a simple and maintainable format.
       </p>
     </section>
 
     <section>
-      <h2>Planned Sections</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Blog</h3>
-          <p>Technical articles, notes, and development logs.</p>
-        </div>
-        <div class="card">
-          <h3>Projects</h3>
-          <p>Showcase of personal and open-source projects.</p>
-        </div>
-        <div class="card">
-          <h3>Tools</h3>
-          <p>Small utilities and experiments built for the web.</p>
-        </div>
-        <div class="card">
-          <h3>Contact</h3>
-          <p>Email integration and other contact methods.</p>
-        </div>
-      </div>
+      <h2>Planned Content</h2>
+      <ul>
+        <li>Technical blog posts and notes</li>
+        <li>Personal and open-source project showcases</li>
+        <li>Small web tools and experiments</li>
+        <li>Contact and email integration</li>
+      </ul>
     </section>
+
   </main>
 
   <footer>
-    © 2025 Shikimori · Built as a personal web platform
+    © 2025 Shikimori
   </footer>
 
 </body>
